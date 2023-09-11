@@ -54,11 +54,12 @@ async function addUser(id, username, password) {
         password,
         Number(process.env.PASSWD_SALT_ROUNDS)
     );
-    usersArray.push({
+    const userObj = {
         id: id,
         username: username,
         password: hashedPassword,
-    });
+    };
+    usersArray.push(userObj);
 }
 
 module.exports = { getUserById, getUserByName, getUsers, addUser };
